@@ -35,6 +35,18 @@ The VPM package source is located at:
 Packages/com.mekabu.blendshape-animation-creator
 ```
 
+## Repository deployment
+
+`Deployment/sync_vpm_release.py` mirrors the latest public GitHub Release into
+`/mnt/data/projects/vpm-repository`. It preserves existing package versions,
+verifies immutable release files by SHA-256, and updates `index.json`
+atomically. Example systemd service and timer units are included in the same
+directory.
+
+The OCI host is expected to keep a public HTTPS clone at
+`/mnt/data/projects/Blendshape-Animation-Creator`. The service pulls that clone
+before checking the latest release.
+
 ## License
 
 Licensed under the MIT License. See [LICENSE](LICENSE).

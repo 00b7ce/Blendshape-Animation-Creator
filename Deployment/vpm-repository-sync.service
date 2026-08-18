@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync the latest Blendshape Animation Creator VPM release
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+ExecStartPre=/usr/bin/git -C /mnt/data/projects/Blendshape-Animation-Creator pull --ff-only
+ExecStart=/usr/bin/python3 /mnt/data/projects/Blendshape-Animation-Creator/Deployment/sync_vpm_release.py
