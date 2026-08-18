@@ -57,6 +57,8 @@ def write_json_atomic(path: Path, value: dict) -> None:
         with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as stream:
             json.dump(value, stream, ensure_ascii=False, indent=2)
             stream.write("\n")
+            stream.flush()
+            os.fchmod(stream.fileno(), 0o664)
         os.replace(temporary_name, path)
     except BaseException:
         try:
@@ -134,6 +136,7 @@ def main() -> int:
     try:
         with temporary_zip.open("wb") as stream:
             stream.write(request_bytes(zip_asset["browser_download_url"]))
+        temporary_zip.chmod(0o664)
         downloaded_hash = sha256(temporary_zip)
 
         if destination_zip.exists():
@@ -143,6 +146,7 @@ def main() -> int:
                     f"Refusing to overwrite immutable release {package_name} {version}"
                 )
             temporary_zip.unlink()
+            destination_zip.chmod(0o664)
         else:
             os.replace(temporary_zip, destination_zip)
     finally:
