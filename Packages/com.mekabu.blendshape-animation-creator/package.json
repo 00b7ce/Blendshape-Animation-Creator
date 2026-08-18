@@ -1,0 +1,21 @@
+{
+  "name": "com.mekabu.blendshape-animation-creator",
+  "displayName": "Blendshape Animation Creator",
+  "version": "0.1.0",
+  "unity": "2022.3",
+  "description": "An editor tool for previewing avatar blendshapes and creating or editing facial-expression AnimationClips without modifying the source avatar.",
+  "license": "MIT",
+  "type": "tool",
+  "hideInEditor": false,
+  "author": {
+    "name": "Mekabu",
+    "email": "contact@mekabu.io"
+  },
+  "keywords": [
+    "avatar",
+    "blendshape",
+    "animation",
+    "expression",
+    "vrchat"
+  ]
+}
