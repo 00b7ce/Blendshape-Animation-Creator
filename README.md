@@ -47,6 +47,9 @@ The OCI host is expected to keep a public HTTPS clone at
 `/mnt/data/projects/Blendshape-Animation-Creator`. The service pulls that clone
 before checking the latest release.
 
+GitHub Pages deployment is intentionally disabled because the public VPM
+listing is served from `vpm-repo.mekabu.io` on OCI.
+
 ## License
 
 Licensed under the MIT License. See [LICENSE](LICENSE).
